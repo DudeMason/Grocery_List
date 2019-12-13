@@ -46,7 +46,7 @@ class App extends Component {
     return(
       <div style={{
         backgroundColor: 'navy',
-        padding: '10px 10px 200px',
+        padding: '10px 10px 100px',
         }}>
         <List items={this.state.items} completeItems={this.completeItems} />
         <GroceryForm addItem={this.addItem}/>

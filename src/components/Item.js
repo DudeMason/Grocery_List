@@ -17,7 +17,7 @@ const Item = ({ id, itemName, completed, completeItems}) => (
 <ul
   style= {completed ? {...styles.complete} : {}}
   onClick= {() => completeItems(id)}
-  style= {{padding:'10px 60px 1px 10px'}}
+  style= {{padding:'10px 60px 1px 10px', fontSize: '15pt'}}
 >
   {itemName.capitalize()}
 </ul>
