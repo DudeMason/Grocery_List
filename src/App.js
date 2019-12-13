@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import List from './components/List'
-import GroceryForm from './components/GroceryForm'
+import List from './components/List';
+import GroceryForm from './components/GroceryForm';
+import './App.css';
 
 class App extends Component {
 
@@ -43,7 +44,10 @@ class App extends Component {
   render() {
 
     return(
-      <div>
+      <div style={{
+        backgroundColor: 'navy',
+        padding: '10px 10px 200px',
+        }}>
         <List items={this.state.items} completeItems={this.completeItems} />
         <GroceryForm addItem={this.addItem}/>
       </div>

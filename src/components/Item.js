@@ -14,12 +14,13 @@ String.prototype.capitalize = function() {
 }
 
 const Item = ({ id, itemName, completed, completeItems}) => (
-<li
-  style= { completed ? {...styles.complete} : {}}
+<ul
+  style= {completed ? {...styles.complete} : {}}
   onClick= {() => completeItems(id)}
+  style= {{padding:'10px 60px 1px 10px'}}
 >
-  {itemName.capitalize()} <button onClick={this}>Edit</button>
-</li>
+  {itemName.capitalize()}
+</ul>
 )
 
 
