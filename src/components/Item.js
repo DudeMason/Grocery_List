@@ -7,14 +7,19 @@ const styles ={
   }
 }
 
+// edit = () => {}
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 const Item = ({ id, itemName, completed, completeItems}) => (
 <li
   style= { completed ? {...styles.complete} : {}}
   onClick= {() => completeItems(id)}
-  >
-  {itemName}
+>
+  {itemName.capitalize()} <button onClick={this}>Edit</button>
 </li>
-
 )
 
 

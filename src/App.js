@@ -11,13 +11,6 @@ class App extends Component {
       ]
     }
 
-  getUniqId = () => {
-     //NOTE We are just using this as a helper function for id's since we aren't using a db yet
-     return Math.floor((1 + Math.random()) * 0x10000)
-       .toString(16)
-       .substring(1);
-    }
-
   completeItems = (id) => {
       const {items} = this.state
 
@@ -26,12 +19,19 @@ class App extends Component {
           if (item.id === id) {
             return {
               ...item,
-              complete: !item.complete
+              completed: !item.completed
             }
           }
           return item
         })
       })
+    }
+
+  getUniqId = () => {
+     //NOTE We are just using this as a helper function for id's since we aren't using a db yet
+     return Math.floor((1 + Math.random()) * 0x10000)
+       .toString(16)
+       .substring(1);
     }
 
   addItem = (itemAdded) => {
