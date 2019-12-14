@@ -1,5 +1,16 @@
 import React from 'react'
 
+// edit = () => {}
+
+const Item = ({ id, itemName, completed, completeItems }) => (
+<ul
+  style= {completed ? {...styles.complete} : {}}
+  onClick= {() => completeItems(id)}
+>
+  {itemName.capitalize()}
+</ul>
+)
+
 const styles ={
   complete: {
     color: 'grey',
@@ -7,21 +18,9 @@ const styles ={
   }
 }
 
-// edit = () => {}
-
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
-
-const Item = ({ id, itemName, completed, completeItems}) => (
-<ul
-  style= {completed ? {...styles.complete} : {}}
-  onClick= {() => completeItems(id)}
-  style= {{padding:'10px 60px 1px 10px', fontSize: '15pt'}}
->
-  {itemName.capitalize()}
-</ul>
-)
 
 
 export default Item

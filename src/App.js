@@ -12,6 +12,36 @@ class App extends Component {
       ]
     }
 
+
+  // removeItem(e) {
+  //   this.setState({items: this.state.items.filter(function(item) {
+  //       return item !== e.target
+  //   })});
+  // }
+  //
+  // otherSubmit = (e) => {
+  //   e.preventDefault()
+  //   this.removeItem(this.state)
+  // }
+  // editItems = (id) => {
+  //   const {items} = this.state
+  //
+  //   this.setState({
+  //     items: items.map( item => {
+  //       if (item.id === id) {
+  //         return {
+  //           ...item,
+  //           itemName: newString
+  //         }
+  //       }
+  //     })
+  //   })
+  // }
+  //
+  // newString = () => {
+  //
+  // }
+
   completeItems = (id) => {
       const {items} = this.state
 
@@ -37,6 +67,7 @@ class App extends Component {
 
   addItem = (itemAdded) => {
     const {items} = this.state
+
     const newItem = {id: this.getUniqId(), ...itemAdded}
     this.setState({ items: [newItem, ...items] })
   }
@@ -49,7 +80,7 @@ class App extends Component {
         padding: '10px 10px 100px',
         }}>
         <List items={this.state.items} completeItems={this.completeItems} />
-        <GroceryForm addItem={this.addItem}/>
+        <GroceryForm addItem={this.addItem} removeItem={this.removeItem}/>
       </div>
     )
   }
