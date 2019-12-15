@@ -6,9 +6,9 @@ import './App.css';
 class App extends Component {
 
   state = { items: [
-    {id: 1, itemName: "Milk", completed: false},
-    {id: 2, itemName: "Cereal", completed: false},
-    {id: 3, itemName: "Apples", completed: false}
+    {id: 1, itemName: "Milk", price: '2', completed: false},
+    {id: 2, itemName: "Cereal", price: '3', completed: false},
+    {id: 3, itemName: "Apples", price: '.50', completed: false}
       ]
     }
 
@@ -84,6 +84,10 @@ class App extends Component {
       </div>
     )
   }
+}
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 export default App;

@@ -2,20 +2,20 @@ import React, {Component} from 'react'
 
 class GroceryForm extends Component {
 
-  state = {itemName: '', complete: false}
+  state = {itemName: '', price: '', complete: false}
 
-handleChange = (e) => {
-  // this.setState({[e.target.name]: e.target.value})
+  handleChange = (e) => {
   const { name, value } = e.target
   this.setState({ [name]: value })
-}
+  }
 
-handleSubmit = (e) => {
-  e.preventDefault() //stops page reloading
-//   console.log(this.state.todoValue) // <-- DIDN'T WORK?
-  this.props.addItem(this.state)
-  this.setState({ itemName: '' })
-}
+  handleSubmit = (e) => {
+    e.preventDefault()
+
+    this.props.addItem(this.state)
+    this.setState({ itemName: '', price: '' })
+
+  }
 
   render() {
     return(
@@ -28,6 +28,15 @@ handleSubmit = (e) => {
           required
           placeholder='Add an item'
         />
+        <input
+          value={this.state.price}
+          name='price'
+          onChange={this.handleChange}
+
+          required
+          placeholder="Item price">
+        </input>
+        <button>Submit</button>
       </form>
 
     )
