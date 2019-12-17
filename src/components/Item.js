@@ -21,7 +21,7 @@ class Item extends Component {
       <>
       <ul style={completed ? {...styles.complete} : {}} onClick= {() => completeItems(id)}>
         <p>
-          {itemName.capitalize()}
+          {itemName.capitalize()} {}
           ${price}
         </p>
       </ul>
