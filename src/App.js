@@ -6,9 +6,9 @@ import './App.css';
 class App extends Component {
 
   state = { items: [
-    {id: 1, itemName: "Milk", price: '2', completed: false},
-    {id: 2, itemName: "Cereal", price: '3', completed: false},
-    {id: 3, itemName: "Apples", price: '.50', completed: false}
+    {id: 1, itemName: "Milk", price: '2', completed: false, deletable: false},
+    {id: 2, itemName: "Cereal", price: '3', completed: false, deletable: false},
+    {id: 3, itemName: "Apples", price: '.50', completed: false, deletable: false}
       ]
     }
 
@@ -50,7 +50,8 @@ class App extends Component {
           if (item.id === id) {
             return {
               ...item,
-              completed: !item.completed
+              completed: !item.completed,
+              deletable: !item.deletable
             }
           }
           return item
@@ -79,8 +80,8 @@ class App extends Component {
         backgroundColor: 'navy',
         padding: '10px 10px 100px',
         }}>
-        <List items={this.state.items} completeItems={this.completeItems} />
-        <GroceryForm addItem={this.addItem} removeItem={this.removeItem}/>
+        <List items={this.state.items} completeItems={this.completeItems}/>
+        <GroceryForm addItem={this.addItem}/>
       </div>
     )
   }
