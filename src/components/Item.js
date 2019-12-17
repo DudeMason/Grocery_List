@@ -1,28 +1,34 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 // edit = () => {}
 
-const Item = ({ id, itemName, price, completed, deletable, completeItems }) => (
-<ul
-  style= {completed ? {...styles.complete} : {}}
-  onClick= {() => completeItems(id)}
->
-  <p>{itemName.capitalize()} ${price}</p>
-</ul>
-)
+class Item extends Component {
 
-// function removeItem(id) {
-//     if (props.completed == true)
-//       return <button onClick={this.removeItem(id)}>Delete</button>};
-//     }
-//     return ;
-//   }
 
-const styles ={
-  complete: {
-    color: 'grey',
-    textDecoration: 'line-through',
+  render() {
+    const styles ={
+      complete: {
+        color: 'grey',
+        textDecoration: 'line-through',
+      }
+    }
+    const {itemName, price, edit, removeItem, completeItems, completed, id} = this.props
+    return(
+      <>
+      <ul style={completed ? {...styles.complete} : {}} onClick= {() => completeItems(id)}>
+        <p>
+          {itemName.capitalize()}
+          ${price}
+        </p>
+      </ul>
+      <ul>
+      {edit && <button onClick>Edit</button>}
+      {edit && <button onClick={() => removeItem(id)}>Delete</button>}
+      </ul>
+      </>
+    )
   }
+
 }
 
 export default Item
