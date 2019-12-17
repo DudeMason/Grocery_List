@@ -13,9 +13,7 @@ class App extends Component {
     }
 
     toggleEdit = () => {
-      const { edit } = this.state
-
-      this.setState({ edit: !edit })
+      this.setState({ edit: !this.state.edit })
     }
 
     removeItem = (id) => {

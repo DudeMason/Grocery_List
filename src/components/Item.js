@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
+import GroceryForm from './GroceryForm'
 
-// edit = () => {}
 
 class Item extends Component {
 
+  state = {editItem: false}
+
+  toggleEditItem = () =>
+    this.setState({editItem: !this.state.editItem})
 
   render() {
     const styles ={
@@ -22,7 +26,7 @@ class Item extends Component {
         </p>
       </ul>
       <ul>
-      {edit && <button onClick>Edit</button>}
+      {edit && <button onClick={() => this.toggleEditItem}>Edit</button>}
       {edit && <button onClick={() => removeItem(id)}>Delete</button>}
       </ul>
       </>
