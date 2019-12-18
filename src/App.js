@@ -18,8 +18,10 @@ class App extends Component {
 
     removeItem = (id) => {
       const newItems = this.state.items.filter(item => {
-        if (item.id !== id)
-          {return item}
+        if (item.id !== id) {
+          return item
+        }
+          return null
       })
       this.setState({ items: [...newItems] })
     }
