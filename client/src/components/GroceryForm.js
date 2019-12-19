@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 class GroceryForm extends Component {
 
-  state = {itemName: '', price: '', complete: false, deletable: false}
+  state = {name: '', price: '', complete: false, deletable: false}
 
   handleChange = (e) => {
   const { name, value } = e.target
@@ -13,7 +13,7 @@ class GroceryForm extends Component {
     e.preventDefault()
 
     this.props.addItem(this.state)
-    this.setState({ itemName: '', price: '' })
+    this.setState({ name: '', price: '' })
 
   }
 
@@ -22,7 +22,7 @@ class GroceryForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <input
           value={this.state.itemName}
-          name='itemName'
+          name='name'
           onChange={this.handleChange}
 
           required
