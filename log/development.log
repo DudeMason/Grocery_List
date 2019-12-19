@@ -1,2 +1,159 @@
   [1m[35m (1208.6ms)[0m  [1m[35mCREATE DATABASE "grocery_list_development" ENCODING = 'unicode'[0m
   [1m[35m (839.1ms)[0m  [1m[35mCREATE DATABASE "grocery_list_test" ENCODING = 'unicode'[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE DATABASE "grocery_list_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE "grocery_list_test" ENCODING = 'unicode'[0m
+  [1m[35m (93.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "grocery_list_development"[0m
+  [1m[35m (31.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "grocery_list_test"[0m
+  [1m[35m (1518.7ms)[0m  [1m[35mCREATE DATABASE "grocery_list_development" ENCODING = 'unicode'[0m
+  [1m[35m (394.7ms)[0m  [1m[35mCREATE DATABASE "grocery_list_test" ENCODING = 'unicode'[0m
+  [1m[35m (239.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (24.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1713540201397763655)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20191219031132)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.6ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "name" character varying, "price" character varying, "completed" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191219031132"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (42.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-19 03:12:25.312940"], ["updated_at", "2019-12-19 03:12:25.312940"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1713540201397763655)[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1713540201397763655)[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1713540201397763655)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (38.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mItem Create (23.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "price", "completed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Cereal"], ["price", "5"], ["completed", false], ["created_at", "2019-12-19 18:30:43.280957"], ["updated_at", "2019-12-19 18:30:43.280957"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "price", "completed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Milk"], ["price", "2"], ["completed", false], ["created_at", "2019-12-19 18:30:43.312892"], ["updated_at", "2019-12-19 18:30:43.312892"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "price", "completed", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Apples"], ["price", ".50"], ["completed", false], ["created_at", "2019-12-19 18:30:43.319325"], ["updated_at", "2019-12-19 18:30:43.319325"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:42:27 -0700
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (1.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 47ms (Views: 11.6ms | ActiveRecord: 10.1ms | Allocations: 6232)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:42:48 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (3.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 3.0ms | Allocations: 1231)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:44:09 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (3.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 3.3ms | Allocations: 1231)
+
+
+Started POST "/api/items" for 127.0.0.1 at 2019-12-19 12:44:35 -0700
+Processing by Api::ItemsController#create as HTML
+  Parameters: {"itemName"=>"Hat", "price"=>"80", "complete"=>false, "deletable"=>false, "item"=>{"price"=>"80"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/items_controller.rb:8:in `create'
+  [1m[36mItem Create (1.1ms)[0m  [1m[32mINSERT INTO "items" ("price", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["price", "80"], ["created_at", "2019-12-19 19:44:35.187677"], ["updated_at", "2019-12-19 19:44:35.187677"]]
+  ↳ app/controllers/api/items_controller.rb:8:in `create'
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/items_controller.rb:8:in `create'
+Completed 200 OK in 35ms (Views: 0.6ms | ActiveRecord: 23.6ms | Allocations: 2526)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:45:12 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (2.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 2.6ms | Allocations: 1360)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:45:35 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (1.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 1.5ms | Allocations: 1342)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:45:38 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (2.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 2.2ms | Allocations: 1342)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:45:41 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (1.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 1.6ms | Allocations: 1342)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:45:44 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (3.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 3.5ms | Allocations: 1345)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:45:55 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (7.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 13ms (Views: 5.5ms | ActiveRecord: 7.3ms | Allocations: 1342)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:46:07 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (2.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 2.3ms | Allocations: 1342)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:46:35 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (6.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 6.2ms | Allocations: 1342)
+
+
+Started POST "/api/items" for 127.0.0.1 at 2019-12-19 12:46:46 -0700
+Processing by Api::ItemsController#create as HTML
+  Parameters: {"name"=>"Carrot", "price"=>"80", "complete"=>false, "deletable"=>false, "item"=>{"name"=>"Carrot", "price"=>"80"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/items_controller.rb:8:in `create'
+  [1m[36mItem Create (2.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carrot"], ["price", "80"], ["created_at", "2019-12-19 19:46:46.857293"], ["updated_at", "2019-12-19 19:46:46.857293"]]
+  ↳ app/controllers/api/items_controller.rb:8:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/items_controller.rb:8:in `create'
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 3.6ms | Allocations: 2352)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:46:50 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (6.9ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 15ms (Views: 5.4ms | ActiveRecord: 6.9ms | Allocations: 1478)
+
+
+Started GET "/api/items" for 127.0.0.1 at 2019-12-19 12:46:57 -0700
+Processing by Api::ItemsController#index as HTML
+  [1m[36mItem Load (8.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/items_controller.rb:3:in `index'
+Completed 200 OK in 16ms (Views: 6.1ms | ActiveRecord: 8.1ms | Allocations: 1478)
+
+

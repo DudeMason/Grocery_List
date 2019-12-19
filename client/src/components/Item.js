@@ -14,12 +14,12 @@ class Item extends Component {
         textDecoration: 'line-through',
       }
     }
-    const {itemName, price, edit, removeItem, completeItems, completed, id} = this.props
+    const {name, price, edit, removeItem, completeItems, completed, id} = this.props
     return(
       <>
       <ul style={completed ? {...styles.complete} : {}} onClick= {() => completeItems(id)}>
         <p>
-          {itemName.capitalize()} ${price}
+          {name} ${price}
         </p>
       </ul>
       <ul>

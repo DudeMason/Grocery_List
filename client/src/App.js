@@ -1,19 +1,25 @@
 import React, {Component} from 'react';
 import List from './components/List';
+import axios from 'axios';
 import GroceryForm from './components/GroceryForm';
 import './App.css';
 
 class App extends Component {
 
-  state = { edit: false, items: [
-    {id: 1, itemName: "Milk", price: '2', completed: false},
-    {id: 2, itemName: "Cereal", price: '3', completed: false},
-    {id: 3, itemName: "Apples", price: '.50', completed: false}
-      ]
-    }
+  state = { items: [], edit: false }
 
     toggleEdit = () => {
       this.setState({ edit: !this.state.edit })
+    }
+
+    componentDidMount() {
+      axios.get('/api/items')
+      .then( res => {
+        this.setState({ items: res.data })
+      })
+      .catch( err => {
+        console.log(err)
+      })
     }
 
     removeItem = (id) => {
@@ -50,11 +56,19 @@ class App extends Component {
          .substring(1);
       }
 
-    addItem = (itemAdded) => {
-      const {items} = this.state
+    addItem = (item) => {
+      // const {items} = this.state
 
-      const newItem = {id: this.getUniqId(), ...itemAdded}
-      this.setState({ items: [newItem, ...items] })
+      // const newItem = {id: this.getUniqId(), ...itemAdded}
+      // this.setState({ items: [newItem, ...items] })
+      axios.post(`/api/items`, item)
+        .then( res => {
+          const { items } = this.state
+          this.setState({ items: [...items, res.data]})
+        })
+        .catch( err => {
+          console.log(err)
+        })
     }
 
     render() {
