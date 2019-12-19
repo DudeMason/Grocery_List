@@ -19,7 +19,7 @@ class Item extends Component {
       <>
       <ul style={completed ? {...styles.complete} : {}} onClick= {() => completeItems(id)}>
         <p>
-          {name} ${price}
+          {name} $ {price}
         </p>
       </ul>
       <ul>

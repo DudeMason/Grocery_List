@@ -23,13 +23,10 @@ class App extends Component {
     }
 
     removeItem = (id) => {
-      const newItems = this.state.items.filter(item => {
-        if (item.id !== id) {
-          return item
-        }
-          return null
+      axios.delete(`/api/items/${id}`)
+      .then( res => {
+        console.log(res.data)
       })
-      this.setState({ items: [...newItems] })
     }
 
     completeItems = (id) => {
@@ -49,18 +46,7 @@ class App extends Component {
         })
       }
 
-    getUniqId = () => {
-       //NOTE We are just using this as a helper function for id's since we aren't using a db yet
-       return Math.floor((1 + Math.random()) * 0x10000)
-         .toString(16)
-         .substring(1);
-      }
-
     addItem = (item) => {
-      // const {items} = this.state
-
-      // const newItem = {id: this.getUniqId(), ...itemAdded}
-      // this.setState({ items: [newItem, ...items] })
       axios.post(`/api/items`, item)
         .then( res => {
           const { items } = this.state
