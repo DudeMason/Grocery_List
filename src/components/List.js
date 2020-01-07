@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './Item'
 
-const List = ({ items, completeItems, removeItem, toggleEdit, edit }) => (
+const List = ({ items, completeItems, updateItem, removeItem, toggleEdit, edit }) => (
   <div>
   <h1 style={{textDecorationLine: 'underline'}}>
     Grocery List
@@ -16,6 +16,7 @@ const List = ({ items, completeItems, removeItem, toggleEdit, edit }) => (
         removeItem={removeItem}
         toggleEdit={toggleEdit}
         edit={edit}
+        updateItem={updateItem}
       />)
     }
   </ul>

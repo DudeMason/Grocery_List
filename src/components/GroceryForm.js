@@ -2,19 +2,25 @@ import React, {Component} from 'react'
 
 class GroceryForm extends Component {
 
-  state = {itemName: '', price: '', complete: false, deletable: false}
+  state = {id: 0, itemName: '', price: '', complete: false}
 
   handleChange = (e) => {
   const { name, value } = e.target
-  this.setState({ [name]: value })
+  this.setState({ [name]: value, })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    if (this.props.id) {
+      this.props.updateItem(this.props.id, this.state)
+      this.props.toggleEditItem()
+      this.setState({id: this.props.id, ...this.state})
 
-    this.props.addItem(this.state)
-    this.setState({ itemName: '', price: '' })
-
+    }
+    else{
+      this.props.addItem(this.state)
+    }
+      this.setState({ itemName: '', price: '' })
   }
 
   render() {

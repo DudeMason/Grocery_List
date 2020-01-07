@@ -19,7 +19,8 @@ class App extends Component {
     removeItem = (id) => {
       const newItems = this.state.items.filter(item => {
         if (item.id !== id)
-          {return item}
+        {return item}
+          return null
       })
       this.setState({ items: [...newItems] })
     }
@@ -40,6 +41,15 @@ class App extends Component {
           })
         })
       }
+
+    updateItem = (id, formState) => {
+      const freshItems = this.state.items.map( i => {
+        if (i.id === id)
+        return{formState}
+        return i
+      })
+      this.setState({ items: [...freshItems]})
+    }
 
     getUniqId = () => {
        //NOTE We are just using this as a helper function for id's since we aren't using a db yet
@@ -67,7 +77,8 @@ class App extends Component {
             completeItems={this.completeItems}
             removeItem={this.removeItem}
             toggleEdit={this.toggleEdit}
-            edit={this.state.edit}/>
+            edit={this.state.edit}
+            updateItem={this.updateItem}/>
           <GroceryForm addItem={this.addItem}/>
         </div>
       )
